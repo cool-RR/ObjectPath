@@ -656,7 +656,7 @@ class Tree(Debugger):
           except TypeError:
             return args[0]
         elif fnName == "map":
-          return chain(*map(lambda x: exe(("fn", args[0], x)), args[1]))
+          return chain.from_iterable(map(lambda x: exe(("fn", args[0], x)), args[1]))
         elif fnName in ("count", "len"):
           args = args[0]
           if args in (True, False, None):
